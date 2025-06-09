@@ -1,4 +1,4 @@
-![alt text](https://github.com/borinvini/MountainShooter/blob/main/asset/Player1.png?raw=true "Mountain Shooter") Zombie Days ![alt text](https://github.com/borinvini/MountainShooter/blob/main/asset/Player1.png?raw=true "Mountain Shooter")
+![alt text](https://github.com/user-attachments/assets/3ef4e9d7-450d-4a58-b765-d7595cebfb7e) Zombie Days ![alt text](https://github.com/user-attachments/assets/3ef4e9d7-450d-4a58-b765-d7595cebfb7e)
 ===============
  
 
@@ -15,9 +15,9 @@ Score is saved in database (SQLite3))
 
 GAME MENU
 
-![Menu](https://github.com/user-attachments/assets/c9524f59-6ebd-443a-82c0-53b63eb2128f)
+![Menu](https://github.com/user-attachments/assets/f78e08a6-3f87-4996-8472-0f0730763c8e)
 
 GAME LEVEL 1
 
-![Level1](https://github.com/user-attachments/assets/8af63514-178d-44c9-9eb0-299e0aee0933)
+![Level1](https://github.com/user-attachments/assets/7ea4b690-737a-474b-b66d-4024392c724d)
 
