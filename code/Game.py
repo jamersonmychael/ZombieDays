@@ -22,14 +22,34 @@ class Game:
             menu_return = menu.run()
 
             if menu_return in [MENU_OPTION[0], MENU_OPTION[1], MENU_OPTION[2]]:
-                player_score = [0, 0]  # [Player1, Player2]
-                level = Level(self.window, 'Level1', menu_return, player_score)
-                level_return = level.run(player_score)
-                if level_return:
-                    level = Level(self.window, 'Level2', menu_return, player_score)
-                    level_return = level.run(player_score)
-                    if level_return:
-                        score.save(menu_return, player_score)
+                # Reinicia a pontuação no início de um novo jogo
+                player_score = [0, 0]
+
+                # Loop para tentar o Nível 1
+                while True:
+                    level1 = Level(self.window, 'Level1', menu_return, player_score)
+                    level_return_1 = level1.run(player_score)
+
+                    if level_return_1 is True: # Nível 1 concluído com sucesso
+                        # Tentar Nível 2
+                        level2 = Level(self.window, 'Level2', menu_return, player_score)
+                        level_return_2 = level2.run(player_score)
+
+                        if level_return_2 is True: # Nível 2 concluído com sucesso
+                            score.save(menu_return, player_score)
+                            break # Sai do loop de tentativas de nível (passou ambos os níveis)
+                        elif level_return_2 is False: # Game Over no Nível 2
+                            # Permanece no loop para dar a opção de reiniciar (apertar 'R') ou voltar ao menu ('ESC')
+                            # Se o usuário apertar 'R', level2.__init__ será chamado dentro de level2.run()
+                            # Se o usuário apertar 'ESC', level_return_2 será 'None', e o próximo 'elif' lidará com isso
+                            pass
+                        elif level_return_2 is None: # Voltar ao menu do Nível 2
+                            break # Sai do loop de tentativas de nível, volta para o menu principal
+                    elif level_return_1 is False: # Game Over no Nível 1
+                        # Permanece no loop para dar a opção de reiniciar (apertar 'R') ou voltar ao menu ('ESC')
+                        pass
+                    elif level_return_1 is None: # Voltar ao menu do Nível 1
+                        break # Sai do loop de tentativas de nível, volta para o menu principal
 
             elif menu_return == MENU_OPTION[3]:
                 score.show()
