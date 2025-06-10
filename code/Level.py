@@ -165,13 +165,13 @@ class Level:
         # Offset inicial do centro vertical para as instruções
         y_offset_instructions = 80
 
-        restart_text = "Pressione 'R' para Reiniciar Nível"
+        restart_text = "Press 'R' to Restart Level"
         restart_surf: Surface = instructions_font.render(restart_text, True, C_WHITE).convert_alpha()
         restart_rect: Rect = restart_surf.get_rect(center=(WIN_WIDTH // 2, WIN_HEIGHT // 2 + y_offset_instructions))
         self.window.blit(source=restart_surf, dest=restart_rect)
 
         y_offset_instructions += 25 # Aumenta o offset para a próxima instrução
-        menu_text = "Pressione 'ESC' para Voltar ao Menu"
+        menu_text = "Press 'ESC' to Return to Menu"
         menu_surf: Surface = instructions_font.render(menu_text, True, C_WHITE).convert_alpha()
         menu_rect: Rect = menu_surf.get_rect(center=(WIN_WIDTH // 2, WIN_HEIGHT // 2 + y_offset_instructions))
         self.window.blit(source=menu_surf, dest=menu_rect)
