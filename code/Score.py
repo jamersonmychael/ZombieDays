@@ -48,11 +48,13 @@ class Score:
                         db_proxy.save({'name': name, 'score': score, 'date': get_formatted_date()})
                         self.show()
                         return
-                    elif event.key == K_BACKSPACE:
+                    elif event.key == K_BACKSPACE:   # Apaga a letra digitada
                         name = name[:-1]
-                    else:
+                    else:  # Salvando as letras do nome
                         if len(name) < 4:
                             name += event.unicode
+
+            # Imprime na tela o nome digitado
             self.score_text(20, name, C_WHITE, SCORE_POS['Name'])
             pygame.display.flip()
             pass
@@ -64,11 +66,13 @@ class Score:
         self.score_text(48, 'TOP 10 SCORE', C_YELLOW, SCORE_POS['Title'])
         self.score_text(20, 'NAME     SCORE           DATE      ', C_YELLOW, SCORE_POS['Label'])
         db_proxy = DBProxy('DBScore')
-        list_score = db_proxy.retrieve_top10()
+        list_score = db_proxy.retrieve_top10()  #Busca a lista com os scores no BD
         db_proxy.close()
 
         for player_score in list_score:
             id_, name, score, date = player_score
+
+            #  Imprimir os scores salvos na tela de score
             self.score_text(20, f'{name}     {score:05d}     {date}', C_YELLOW,
                             SCORE_POS[list_score.index(player_score)])
         while True:
